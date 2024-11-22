@@ -7,6 +7,19 @@ export default function App() {
   const TheCatClient = "https://api.thecatapi.com/v1/images/search?limit=5&api_key=";
   const apiKey = TheCatApi_KEY
 
+  const [imagem, setImagm] = useState([])
+
+  const OnBuscaImagem = async () => {
+  const target = TheCatClient + apiKey;
+  try {
+    const response = await fetch(target); 
+    const data = await response.json();  
+    setImagm((gatosAtuais) => [...data, ...gatosAtuais]);
+  }catch (error){
+    console.log('Erro ao recuperar imagem')
+  }
+}
+
   console.log(apiKey);
   return (
     <View style={styles.container}>
