@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import {FlatList, Pressable, StyleSheet, Text,  View }from 'react-native';
+import {FlatList, Pressable, StyleSheet, Text,  View, Image }from 'react-native';
 import{ useState } from 'react'
 import { TheCatApi_KEY } from '@env';
 
@@ -20,23 +20,28 @@ export default function App() {
   }
 }
 
-  console.log(apiKey);
   return (
     <View style={styles.container}>
-      <Pressable style={styles.button}>
+      <Pressable style={styles.button}
+      onPress={() => OnBuscaImagem()}>
           <Text  style={styles.buttonText}>
             { 
               'Adicionar gato'
             }
             </Text>
       </Pressable>
-      <FlatList style={styles.list}> 
-        <View style={styles.listItem}>
-          <Text style={styles.listemItemText}>
-            
-          </Text>
-        </View >
-      </FlatList>
+      <FlatList
+        data={imagem}
+        keyExtractor={(g, index) => index.toString()}
+        renderItem={g => (
+          <View style={styles.vImagem}>
+            <Image
+              style={styles.image}
+              source={{ uri: g.item.url }}
+            />
+          </View>
+        )} />
+      <StatusBar style="auto" />
     </View>
   );
 }
@@ -50,9 +55,10 @@ const styles = StyleSheet.create({
     paddingVertical: 40
   },
   button:{
-    width: '70%',
+    width: '50%',
     backgroundColor:'#0096F3',
     padding: 14,
+    marginBottom: 4,
     borderRadius: 4,
   },
   buttonText:{
@@ -61,7 +67,7 @@ const styles = StyleSheet.create({
   },
   list:{
     borderWidth: 1,
-    borderColor:'gray',
+    borderColor:'red',
     width:'70%',
     borderRadius:4,
     marginTop: 12,
@@ -80,6 +86,18 @@ const styles = StyleSheet.create({
   listemItemText:{
     textAlign: 'center',
     width: '70%',
+  },
+  image: {
+    width: 600, 
+    height: 500, 
+    marginVertical: 10,
+    borderRadius: 10
+  },
+  vImagem:{
+    marginVertical: 10,
+    borderRadius:4
+    
   }
-  
 });
+
+
