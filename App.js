@@ -32,7 +32,7 @@ export default function App() {
       </Pressable>
       <FlatList
         data={imagem}
-        keyExtractor={(g, index) => index.toString()}
+        keyExtractor={(g) => g.id.toString()}
         renderItem={g => (
           <View style={styles.vImagem}>
             <Image
