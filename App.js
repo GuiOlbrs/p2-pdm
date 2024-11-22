@@ -1,7 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import {FlatList, Pressable, StyleSheet, Text,  View }from 'react-native';
+import{ useState } from 'react'
+import { TheCatApi_KEY } from '@env';
 
 export default function App() {
+  const TheCatClient = "https://api.thecatapi.com/v1/images/search?limit=5&api_key=";
+  const apiKey = TheCatApi_KEY
+
+  console.log(apiKey);
   return (
     <View style={styles.container}>
       <Pressable style={styles.button}>

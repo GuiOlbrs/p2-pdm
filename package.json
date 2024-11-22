@@ -12,6 +12,7 @@
     "@expo/metro-runtime": "~4.0.0",
     "expo": "~52.0.10",
     "expo-status-bar": "~2.0.0",
+    "p2-pdm": "file:",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-native": "0.76.2",
@@ -19,7 +20,9 @@
     "react-native-web": "~0.19.13"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.20.0",
+    "metro-react-native-babel-preset": "^0.77.0",
+    "react-native-dotenv": "^3.4.0"
   },
   "private": true
 }
